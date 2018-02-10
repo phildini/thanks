@@ -13,7 +13,8 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'Click>=6.0',
-    # TODO: Put package requirements here
+    'requirements-parser==0.2.0',
+    'termcolor==1.1.0',
 ]
 
 setup_requirements = [

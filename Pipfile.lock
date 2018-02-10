@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "435a866d83eeeeb7e967c39701d68f8436edc25ab6bad54fa28a731f02e32d2a"
+            "sha256": "97d0208f6a8d6d3e4cd2a6bd7b1c07597b3ac795aeb85abd0348d912c9e14e41"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -28,7 +28,31 @@
             }
         ]
     },
-    "default": {},
+    "default": {
+        "click": {
+            "hashes": [
+                "sha256:29f99fc6125fbc931b758dc053b3114e55c77a6e4c6c3a2674a2dc986016381d",
+                "sha256:f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+            ],
+            "version": "==6.7"
+        },
+        "e1839a8": {
+            "editable": true,
+            "path": "."
+        },
+        "requirements": {
+            "hashes": [
+                "sha256:1502e63b3e1b13b4e045f0c490bcfa12503f9a15891901ef7cd1e2e66dd6cf37"
+            ],
+            "version": "==0.1"
+        },
+        "termcolor": {
+            "hashes": [
+                "sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"
+            ],
+            "version": "==1.1.0"
+        }
+    },
     "develop": {
         "alabaster": {
             "hashes": [
@@ -259,6 +283,13 @@
                 "sha256:f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
             ],
             "version": "==0.8.0"
+        },
+        "requirements-parser": {
+            "hashes": [
+                "sha256:76650b4a9d98fc65edf008a7920c076bb2a76c08eaae230ce4cfc6f51ea6a773",
+                "sha256:5963ee895c2d05ae9f58d3fc641082fb38021618979d6a152b6b1398bd7d4ed4"
+            ],
+            "version": "==0.2.0"
         },
         "six": {
             "hashes": [

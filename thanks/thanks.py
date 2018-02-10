@@ -4,6 +4,7 @@ import json
 import os
 import pprint
 import requirements
+from termcolor import colored
 try:
     import xmlrpclib
 except ImportError:
@@ -18,8 +19,10 @@ def find_package_roles(requirements_file):
     data = {}
     give_thanks_to = {}
     with open(json_file, 'r') as j:
+        print("Loading data about contributors...")
         data = json.load(j)
     with open(requirements_file, 'r') as reqs:
+        print("Scanning your requirements file...")
         for req in requirements.parse(reqs):
             roles = client.package_roles(req.name)
             role_names = set(role[1] for role in roles)
@@ -29,11 +32,14 @@ def find_package_roles(requirements_file):
                 else:
                     if name in data:
                         give_thanks_to[name] = {'url': data[name], 'packages': [req.name]}
-        for contributor in give_thanks_to:
-            print(
-                "{} contributes to {}, support them at {}".format(
-                    contributor,
-                    ",".join(give_thanks_to[contributor]['packages']),
-                    give_thanks_to[contributor]['url'],
-                ),
-            )
+        if give_thanks_to:
+            print("Found the following contributors to support: \n")
+            for contributor in give_thanks_to:
+                print(
+                    "{} contributes to {}, support them at {}".format(
+                        colored(contributor, 'blue'),
+                        colored(",".join(give_thanks_to[contributor]['packages']), 'red'),
+                        colored(give_thanks_to[contributor]['url'], 'green'),
+                    ),
+                )
+            print("\n")
