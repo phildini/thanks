@@ -3,14 +3,14 @@
 """Console script for thanks."""
 
 import click
+from .thanks import find_package_roles
 
 
 @click.command()
-def main(args=None):
+@click.argument('requirements', default='requirements.txt', type=click.Path(exists=True))
+def main(requirements):
     """Console script for thanks."""
-    click.echo("Replace this message by putting your code into "
-               "thanks.cli.main")
-    click.echo("See click documentation at http://click.pocoo.org/")
+    find_package_roles(requirements)
     return 0
 
 
