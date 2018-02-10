@@ -14,23 +14,15 @@ Thanks
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/phildini/thanks/shield.svg
-     :target: https://pyup.io/repos/github/phildini/thanks/
-     :alt: Updates
+Finding ways to fund the python packages you use. Inspired by `feross' thanks`_
 
+Run `thanks` on your requirements.txt to find ways to support the developers
+who are supporting your code. 💚
 
+.. code-block:: bash
+$ pip install thanks
+$ thanks requirements.txt
 
-Finding ways to fund the packages you use.
-
-
-* Free software: Apache Software License 2.0
-* Documentation: https://thanks.readthedocs.io.
-
-
-Features
---------
-
-* TODO
 
 Credits
 -------
@@ -39,3 +31,4 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _feross' thanks: https://github.com/feross/thanks

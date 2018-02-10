@@ -1,5 +1,5 @@
 # thanks
-Finding ways to fund the python packages you use. Inspired by [feross' thanks](https://github.com/feross/thanks)
+Finding ways to fund the python packages you use. Inspired by [feross' thanks](https://github.com/feross/thanks).
 
 Run `thanks` on your requirements.txt to find ways to support the developers
 who are supporting your code. 💚
