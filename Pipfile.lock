@@ -40,11 +40,12 @@
             "editable": true,
             "path": "."
         },
-        "requirements": {
+        "requirements-parser": {
             "hashes": [
-                "sha256:1502e63b3e1b13b4e045f0c490bcfa12503f9a15891901ef7cd1e2e66dd6cf37"
+                "sha256:76650b4a9d98fc65edf008a7920c076bb2a76c08eaae230ce4cfc6f51ea6a773",
+                "sha256:5963ee895c2d05ae9f58d3fc641082fb38021618979d6a152b6b1398bd7d4ed4"
             ],
-            "version": "==0.1"
+            "version": "==0.2.0"
         },
         "termcolor": {
             "hashes": [
