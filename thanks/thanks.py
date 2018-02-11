@@ -40,6 +40,6 @@ def find_package_roles(requirements_file):
                         colored(contributor, 'blue'),
                         colored(",".join(give_thanks_to[contributor]['packages']), 'red'),
                         colored(give_thanks_to[contributor]['url'], 'green'),
-                    ),
+                    )
                 )
             print("\n")
