@@ -28,7 +28,7 @@ test_requirements = [
 
 setup(
     name='thanks',
-    version='0.0.6',
+    version='0.0.7',
     description="Finding ways to fund the packages you use.",
     long_description=readme + '\n\n' + history,
     author="Philip James",

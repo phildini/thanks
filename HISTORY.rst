@@ -2,6 +2,13 @@
 History
 =======
 
+0.0.7 (2018-02-12)
+------------------
+
+* Lucky number 7
+* Added more contributors
+* Improved output formatting and coloring
+
 0.0.4 (2018-02-10)
 ------------------
 
