@@ -4,7 +4,7 @@ Finding ways to fund the python packages you use. Inspired by [feross' thanks](h
 Run `thanks` on your requirements.txt to find ways to support the developers
 who are supporting your code. 💚
 
-[![asciicast](https://asciinema.org/a/BP87I8PW6JfP4MBVe2eLuNLky.png)](https://asciinema.org/a/BP87I8PW6JfP4MBVe2eLuNLky)
+[![asciicast](https://asciinema.org/a/zftUjf4ZzhIJMEDkEenR1181m.png)](https://asciinema.org/a/zftUjf4ZzhIJMEDkEenR1181m)
 
 ```
 $ pip install thanks

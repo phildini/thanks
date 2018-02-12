@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from humanfriendly.tables import format_pretty_table
 import json
 import os
 import pip
@@ -37,16 +38,22 @@ class Thanks():
                 for package in self.local_installs[req.name].requires():
                     self.update_give_thanks(package.key)
             if self.give_thanks_to:
-                print("Found the following contributors to support: \n")
+                print("Found the following contributors to support:")
+                table_data = []
                 for contributor in self.give_thanks_to:
-                    print(
-                        "{} contributes to {}, support them at {}".format(
+                    table_data.append(
+                        [
                             colored(contributor, 'blue'),
-                            colored(",".join(self.give_thanks_to[contributor]['packages']), 'red'),
                             colored(self.give_thanks_to[contributor]['url'], 'green'),
-                        )
+                            colored(", ".join(self.give_thanks_to[contributor]['packages']), 'red'),
+                        ]
                     )
-                print("\n")
+                print(format_pretty_table(
+                    data=table_data,
+                    column_names=['Author', 'Where to thank', 'Packages'],
+                    horizontal_bar=' ',
+                    vertical_bar=' ',
+                ))
 
     def update_give_thanks(self, package_name):
         if self.debug:

@@ -13,6 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'Click>=6.0',
+    'humanfriendly==4.8'
     'requirements-parser==0.2.0',
     'termcolor==1.1.0',
 ]
@@ -27,7 +28,7 @@ test_requirements = [
 
 setup(
     name='thanks',
-    version='0.0.4',
+    version='0.0.5',
     description="Finding ways to fund the packages you use.",
     long_description=readme + '\n\n' + history,
     author="Philip James",
