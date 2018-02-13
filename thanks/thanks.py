@@ -49,7 +49,7 @@ class Thanks():
                         [
                             colored(contributor, 'cyan'),
                             colored(self.give_thanks_to[contributor]['url'], 'green'),
-                            colored(", ".join(self.give_thanks_to[contributor]['packages']), 'red'),
+                            colored(", ".join(set(self.give_thanks_to[contributor]['packages'])), 'red'),
                         ]
                     )
                 print(format_pretty_table(
