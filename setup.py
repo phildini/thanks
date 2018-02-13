@@ -34,6 +34,9 @@ setup(
     author="Philip James",
     author_email='phildini@phildini.net',
     url='https://github.com/phildini/thanks',
+    project_urls={
+        'Funding': 'https://patreon.com/phildini',
+    },
     packages=find_packages(include=['thanks']),
     entry_points={
         'console_scripts': [
