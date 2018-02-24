@@ -28,7 +28,7 @@ test_requirements = [
 
 setup(
     name='thanks',
-    version='0.0.7',
+    version='0.0.8',
     description="Finding ways to fund the packages you use.",
     long_description=readme + '\n\n' + history,
     author="Philip James",
@@ -36,6 +36,8 @@ setup(
     url='https://github.com/phildini/thanks',
     project_urls={
         'Funding': 'https://patreon.com/phildini',
+        'Source': 'https://github.com/phildini/thanks',
+        'Tracker': 'https://github.com/phildini/thanks/issues',
     },
     packages=find_packages(include=['thanks']),
     entry_points={
