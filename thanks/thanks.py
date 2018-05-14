@@ -3,7 +3,10 @@
 from humanfriendly.tables import format_pretty_table
 import json
 import os
-import pip
+try:
+    import pip._internal as pip
+except ImportError:
+    import pip
 import pprint
 import requirements
 from termcolor import colored, cprint
