@@ -3,13 +3,9 @@
 
 """Test for the package tools for extracting funding metadata"""
 
-from builtins import open as og_open
-import io
-import json
 import os
 import sys
 import unittest
-import unittest.mock as mock
 
 import thanks.package_tools as ptools
 
@@ -19,7 +15,7 @@ package_fixture_paths = os.path.join(os.path.dirname(
 sys.path.append(package_fixture_paths)
 
 
-class TestPakcageTools(unittest.TestCase):
+class TestPackageTools(unittest.TestCase):
 
     def test_get_local_funding_metadata_from_name(self):
         package_name = u'mosw'

@@ -1,19 +1,15 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 termcolor = "*"
 "e1839a8" = {path = ".", editable = true}
 humanfriendly = "*"
-
+"flake8" = "*"
 
 [dev-packages]
-
 bumpversion = "==0.5.3"
 watchdog = "==0.8.3"
 "flake8" = "==3.5.0"
@@ -23,7 +19,5 @@ sphinx = "==1.6.5"
 twine = "==1.9.1"
 requirements-parser = "*"
 
-
 [requires]
-
 python_version = "3.6"

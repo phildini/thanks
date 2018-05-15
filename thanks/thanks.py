@@ -7,7 +7,6 @@ try:
     import pip._internal as pip
 except ImportError:
     import pip
-import pprint
 import requirements
 from termcolor import colored, cprint
 try:

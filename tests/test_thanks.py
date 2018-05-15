@@ -7,7 +7,6 @@
 import unittest
 from click.testing import CliRunner
 
-from thanks.thanks import Thanks
 from thanks import cli
 
 
