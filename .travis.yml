@@ -8,7 +8,8 @@ python:
   - 3.4
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install:
+    - pip install requirements_dev.txt
 
 # Command to run tests, e.g. python setup.py test
 script:
