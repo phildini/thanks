@@ -1,0 +1,29 @@
+{
+    "classifiers": [
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 3"
+    ],
+    "extensions": {
+        "python.details": {
+            "contacts": [
+                {
+                    "email": "tom.marks@ministry-of-silly-walks.python",
+                    "name": "Tom Marks",
+                    "role": "author"
+                }
+            ],
+            "document_names": {
+                "description": "DESCRIPTION.rst"
+            },
+            "project_urls": {
+                "Home": "http://ministry-of-silly-walks.python",
+                "Funding": "http://ministry-of-silly-walks.python/fundme"
+            }
+        }
+    },
+    "generator": "bdist_wheel (0.30.0.a0)",
+    "metadata_version": "2.0",
+    "name": "click",
+    "summary": "An example package for testing",
+    "version": "0.1"
+}
