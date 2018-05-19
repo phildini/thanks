@@ -1,13 +1,12 @@
 {
-    "amoffat": "http://formconstantdance.org/donate",
-    "brosner": "https://earn.com/brosner/",
-    "django": "https://www.djangoproject.com/fundraising/",
-    "freakboy3742": "https://pybee.org/contributing/membership/",
-    "jezdez": "https://www.paypal.me/jezdez",
-    "kennethreitz": "https://paypal.me/kennethreitz42",
-    "lamby": "https://www.paypal.me/lambyuk",
-    "nedbatchelder": "https://www.paypal.me/nedbat",
-    "phildini": "https://patreon.com/phildini",
-    "singingwolfboy": "https://earn.com/singingwolfboy/",
-    "untitaker": "https://www.paypal.me/untitaker"
+    "coverage": {
+        "url": "https://www.paypal.me/nedbat",
+        "authors": ["Ned Batchelder"]
+    },
+    "django": {"url": "https://www.djangoproject.com/fundraising/"},
+    "virtualenv": {"url": "https://www.paypal.me/untitaker"},
+    "thanks": {
+        "url": "https://patreon.com/phildini",
+        "authors": ["Philip James", "Tom Marks"]
+    }
 }
