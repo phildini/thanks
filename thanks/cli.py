@@ -11,7 +11,9 @@ from .thanks import Thanks
 @click.option('--debug', is_flag=True, help='Set debug mode')
 def main(requirements, debug):
     """Console script for thanks."""
-    Thanks(debug=debug).find_package_roles(requirements)
+    with open(requirements, 'r') as fh:
+        requirements = fh.read().strip().split()
+    Thanks(debug=debug).find_project_details(requirements)
     return 0
 
 
