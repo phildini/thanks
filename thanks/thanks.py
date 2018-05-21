@@ -8,6 +8,8 @@ import requirements
 import requests
 from termcolor import colored, cprint
 
+from . import package_tools
+
 
 JSON_FILE = ("{}/thanks.json".format(os.path.dirname(os.path.realpath(__file__))))
 
@@ -17,17 +19,7 @@ ProjectData = namedtuple('ProjectData', ['name', 'funding_link', 'authors'])
 class Thanks():
     def __init__(self, debug=False):
         self.debug = debug
-        self.data = self.load_local_project_data()
         self.give_thanks_to = {}
-
-    def load_local_project_data(self):
-        print('Loading data about {}'.format(colored('contributors...', 'cyan')))
-        with open(JSON_FILE, 'r') as fh:
-            data = json.load(fh)
-            for project_name in data.keys():
-                authors = ', '.join(data[project_name].get('authors', []))
-                data[project_name]['authors'] = authors
-        return data
 
     def find_project_details(self, requirements_list):
         print('Scanning your {} file...'.format(colored('requirements', 'red')))
@@ -61,15 +53,28 @@ class Thanks():
                 horizontal_bar=' ',
                 vertical_bar=' ',
             ))
+            cprint(
+                ''.join([
+                    "If you see projects with ",
+                    colored("MISSING FUNDING INFORMATION ", "red"),
+                    "then why not submit a pull request ",
+                    "the project repository asking the author to ",
+                    colored("ADD A 'FUNDING' PROJECT_URL ", "yellow"),
+                    "to the projects setup.py"
+                ])
+            , attrs=['bold'])
 
     def get_local_data(self, project_name):
-        if project_name in self.data:
+        try:
+            metadata = package_tools.get_local_metadata(project_name)
             data = ProjectData(
                 name=project_name,
-                funding_link=self.data[project_name]['url'],
-                authors=self.data[project_name]['authors']
+                funding_link=metadata['funding_url'],
+                authors=metadata['author']
             )
-        else:
+        except KeyError:
+            data = None
+        except package_tools.MetaDataNotFound:
             data = None
         return data
 

@@ -5,6 +5,7 @@ Summary: An example package for testing
 Home-page: http://ministry-of-silly-walks.python
 Author: Tom Marks
 Author-email: tom.marks@ministry-of-silly-walks.python
+Project-URL: Funding, http://ministry-of-silly-walks.python/fundme
 License: UNKNOWN
 Platform: UNKNOWN
 Classifier: Programming Language :: Python
