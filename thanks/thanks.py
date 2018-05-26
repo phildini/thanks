@@ -61,8 +61,9 @@ class Thanks():
                     "the project repository asking the author to ",
                     colored("ADD A 'FUNDING' PROJECT_URL ", "yellow"),
                     "to the projects setup.py"
-                ])
-            , attrs=['bold'])
+                ]),
+                attrs=['bold']
+            )
 
     def get_local_data(self, project_name):
         try:

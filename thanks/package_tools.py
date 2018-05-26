@@ -1,6 +1,5 @@
 from functools import reduce
 from itertools import chain, takewhile
-import json
 import os
 import pkg_resources
 import re
@@ -26,7 +25,6 @@ def get_dist_metadata(dist):
 
 
 def get_funding_data(metadata):
-    print(metadata)
     return metadata.get('funding_url')
 
 
@@ -52,7 +50,6 @@ def get_local_dist_metadata_filepath(dist):
     else:
         ext = None
         metadata_file = None
-
 
     filename = '{}.{}'.format(filename, ext)
     path = os.path.join(dist.location, filename, metadata_file)
