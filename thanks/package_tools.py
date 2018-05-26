@@ -32,12 +32,19 @@ def get_local_dist_metadata_filepath(dist):
     # Dist filename syntax
     # name ["-" version ["-py" pyver ["-" required_platform]]] "." ext
     # https://setuptools.readthedocs.io/en/latest/formats.html#filename-embedded-metadata
-    filename = ''.join(chain(*takewhile(lambda x: x[1], (
+
+    def valid_component(component):
+        return component[1]
+
+    # Stop taking filename components at the first missing/invalid component
+    filename_component = takewhile(valid_component, (
         ('',    pkg_resources.to_filename(pkg_resources.safe_name(dist.project_name))),
         ('-',   pkg_resources.to_filename(pkg_resources.safe_version(dist.version))),
         ('-py', dist.py_version),
         ('-',   dist.platform),
-    ))))
+    ))
+    filename = ''.join(chain(*filename_component))
+
     if isinstance(dist, pkg_resources.EggInfoDistribution):
         ext = 'egg-info'
         metadata_file = 'PKG-INFO'
