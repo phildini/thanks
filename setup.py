@@ -12,18 +12,20 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'Click>=6.0',
-    'humanfriendly==4.8',
-    'requirements-parser==0.2.0',
-    'termcolor==1.1.0',
+    'Click>=6',
+    'humanfriendly>=4',
+    'requirements-parser>=0.2',
+    'termcolor>=1',
+    'setuptools>=',
+    'requests>=2',
 ]
 
 setup_requirements = [
-    # TODO(phildini): Put setup requirements (distutils extensions, etc.) here
+    'nose'
 ]
 
 test_requirements = [
-    # TODO: Put package test requirements here
+    'ddt',
 ]
 
 setup(
@@ -60,7 +62,7 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    test_suite='tests',
+    test_suite='nose.collector',
     tests_require=test_requirements,
     setup_requires=setup_requirements,
 )

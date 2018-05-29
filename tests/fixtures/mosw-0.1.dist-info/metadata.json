@@ -23,7 +23,7 @@
     },
     "generator": "bdist_wheel (0.30.0.a0)",
     "metadata_version": "2.0",
-    "name": "click",
+    "name": "mosw",
     "summary": "An example package for testing",
     "version": "0.1"
 }
