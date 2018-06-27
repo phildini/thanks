@@ -10,7 +10,7 @@ import requirements
 import requests
 import termcolor
 import toml
-from termcolor import colored, cprint
+from termcolor import colored
 
 from . import package_tools
 
@@ -55,8 +55,8 @@ class Thanks():
     def _get_local_data(self, project_name):
         try:
             metadata = package_tools.get_local_metadata(project_name)
-            funding_link=metadata.get('funding_url', '')
-            authors=metadata.get('author', '')
+            funding_link = metadata.get('funding_url', '')
+            authors = metadata.get('author', '')
             if not any([funding_link, authors]):
                 return None
 
@@ -98,8 +98,9 @@ class Thanks():
             colored('You depend on {} who would {}'.format(
                 colored('{} authors'.format(len(self.give_thanks_to)), 'cyan'),
                 colored('enjoy donations!', 'green'),
-            ),
-            attrs=['bold'])
+                ),
+                attrs=['bold']
+            )
         )
 
         colorized_data = [

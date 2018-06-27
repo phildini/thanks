@@ -28,8 +28,7 @@ logger = logging.getLogger("thanks")
 @click.option("--outfile", "-o",
               type=click.File("w"),
               default="-", help='Save output to file')
-def main(package_name, requirements, pipfile,
-        #  setuppy,
+def main(package_name, requirements, pipfile,  # setuppy,
          debug, outfile):
     if debug:
         logger.level = logging.DEBUG
@@ -46,4 +45,4 @@ def main(package_name, requirements, pipfile,
 
 if __name__ == "__main__":
     import sys
-    sys.exit(cli())
+    sys.exit(main())
