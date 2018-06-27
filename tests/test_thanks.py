@@ -5,6 +5,7 @@
 
 import os
 import sys
+from textwrap import dedent
 import unittest
 from click.testing import CliRunner
 
@@ -45,9 +46,39 @@ class TestThanks(unittest.TestCase):
     def test_thanks_requirements_list(self):
         thanks = Thanks()
 
-        thanks.requirements_list(["crunchy-frog"])
+        thanks.requirements_list(dedent("""
+            crunchy-frog
+            mosw
+        """))
 
         output = thanks.rocks(colored_output=False)
 
-        assert "You depend on 1 authors" in output
-        assert "crunchy-frog                    Kenneth Reitz" in output
+        assert "You depend on 2 authors" in output
+        assert "crunchy-frog                                                  Kenneth Reitz" in output
+        assert "mosw           http://ministry-of-silly-walks.python/fundme   Tom Marks" in output
+
+    def test_thanks_pipfile(self):
+        pipfile_contents = dedent("""
+            [[source]]
+            url = "https://pypi.python.org/simple"
+            verify_ssl = true
+            name = "pypi"
+
+            [packages]
+            crunchy-frog = "==0.2"
+
+            [dev-packages]
+            mosw = "*"
+
+            [requires]
+            python_version = "3.6"
+        """)
+        thanks = Thanks()
+
+        thanks.pipfile(pipfile_contents)
+
+        output = thanks.rocks(colored_output=False)
+
+        assert "You depend on 2 authors" in output
+        assert "crunchy-frog                                                  Kenneth Reitz" in output
+        assert "mosw           http://ministry-of-silly-walks.python/fundme   Tom Marks" in output

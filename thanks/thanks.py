@@ -9,6 +9,7 @@ import os
 import requirements
 import requests
 import termcolor
+import toml
 from termcolor import colored, cprint
 
 from . import package_tools
@@ -37,13 +38,19 @@ class Thanks():
         print('Scanning your {} file...'.format(colored('requirements', 'red')))
         reqs = [
             next(requirements.parse(r))
-            for r in requirements_list
+            for r in requirements_list.splitlines()
+            if r != ""
         ]
         for req in reqs:
             self.package(req.name)
 
-    # def pipfile(self, pipfile):
-    #     pass
+    def pipfile(self, pipfile):
+        project_data = toml.loads(pipfile)
+        reqs = []
+        reqs += list(project_data.get("packages", {}).keys())
+        reqs += list(project_data.get("dev-packages", {}).keys())
+        for req in reqs:
+            self.package(req)
 
     def _get_local_data(self, project_name):
         try:

@@ -18,6 +18,7 @@ requirements = [
     'termcolor>=1',
     'setuptools>=',
     'requests>=2',
+    'toml'
 ]
 
 setup_requirements = [

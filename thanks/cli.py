@@ -16,9 +16,9 @@ logger = logging.getLogger("thanks")
 @click.option("--requirements", "-r",
               multiple=True,
               type=click.File("r"))
-# @click.option("--pipfile", "-p",
-#               multiple=True,
-#               type=click.File("r"))
+@click.option("--pipfile", "-p",
+              multiple=True,
+              type=click.File("r"))
 # @click.option("--setuppy", "-s",
 #               multiple=True,
 #               type=click.File("r"))
@@ -28,8 +28,8 @@ logger = logging.getLogger("thanks")
 @click.option("--outfile", "-o",
               type=click.File("w"),
               default="-", help='Save output to file')
-def main(package_name, requirements,
-        #  pipfile, setuppy,
+def main(package_name, requirements, pipfile,
+        #  setuppy,
          debug, outfile):
     if debug:
         logger.level = logging.DEBUG
@@ -37,10 +37,9 @@ def main(package_name, requirements,
     for p in package_name:
         thanks.package(p)
     for r in requirements:
-        requirements_list = r.read().splitlines()
-        thanks.requirements_list(requirements_list)
-    # for p in pipfile:
-    #     thanks.pipfile(p)
+        thanks.requirements_list(r.read())
+    for p in pipfile:
+        thanks.pipfile(p.read())
 
     outfile.write(thanks.rocks())
 
