@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """Console script for thanks."""
+from __future__ import absolute_import
+
 import logging
 
 import click
