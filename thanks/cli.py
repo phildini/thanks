@@ -3,20 +3,43 @@
 """Console script for thanks."""
 
 import click
-from .thanks import Thanks
+from thanks.thanks import Thanks
 
 
 @click.command()
-@click.argument('requirements', default='requirements.txt', type=click.Path(exists=True))
-@click.option('--debug', is_flag=True, help='Set debug mode')
-def main(requirements, debug):
-    """Console script for thanks."""
-    with open(requirements, 'r') as fh:
-        requirements = fh.read().strip().split()
-    Thanks(debug=debug).find_project_details(requirements)
-    return 0
+@click.argument("package_name",
+                nargs=-1)
+@click.option("--requirements", "-r",
+              multiple=True,
+              type=click.File("r"))
+# @click.option("--pipfile", "-p",
+#               multiple=True,
+#               type=click.File("r"))
+# @click.option("--setuppy", "-s",
+#               multiple=True,
+#               type=click.File("r"))
+# @click.option("--poetry", type=click.Path(exists=True))
+# @click.option("--hatch", type=click.Path(exists=True))
+@click.option("--debug/--no-debug", default=False, help='Set debug mode')
+@click.option("--outfile", "-o",
+              type=click.File("w"),
+              default="-", help='Save output to file')
+def main(package_name, requirements,
+        #  pipfile, setuppy,
+         debug, outfile):
+    thanks = Thanks(debug=debug)
+    for p in package_name:
+        print(p)
+        thanks.package(p)
+    for r in requirements:
+        requirements_list = r.read().splitlines()
+        thanks.requirements_list(requirements_list)
+    # for p in pipfile:
+    #     thanks.pipfile(p)
+
+    outfile.write(thanks.rocks())
 
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main())
+    sys.exit(cli())
