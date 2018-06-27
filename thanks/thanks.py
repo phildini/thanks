@@ -4,6 +4,7 @@ from __future__ import print_function
 from collections import namedtuple
 from humanfriendly.tables import format_pretty_table
 import json
+import logging
 import os
 import requirements
 import requests
@@ -12,6 +13,8 @@ from termcolor import colored, cprint
 
 from . import package_tools
 
+
+logger = logging.getLogger("thanks")
 
 JSON_FILE = ("{}/thanks.json".format(os.path.dirname(os.path.realpath(__file__))))
 
@@ -24,8 +27,7 @@ class Thanks():
         self.give_thanks_to = {}
 
     def package(self, package_name):
-        if self.debug:
-            print('Checking ', package_name)
+        logger.debug("Checking {}".format(package_name))
         package_data = (self._get_local_data(package_name)
                         or self._get_remote_data(package_name))
         if package_data:
@@ -42,10 +44,6 @@ class Thanks():
 
     # def pipfile(self, pipfile):
     #     pass
-
-    def _display_thanks(self):
-        if self.give_thanks_to:
-            print(self._generate_output())
 
     def _get_local_data(self, project_name):
         try:
@@ -81,7 +79,6 @@ class Thanks():
         except json.decoder.JSONDecodeError:
             data = None
         return data
-
 
     def _generate_output(self, colored_output=True):
         def _uncolored(text, *args, **kwargs):

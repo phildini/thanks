@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
 """Console script for thanks."""
+import logging
 
 import click
 from thanks.thanks import Thanks
+
+logging.basicConfig(level=logging.CRITICAL)
+logger = logging.getLogger("thanks")
 
 
 @click.command()
@@ -27,9 +31,10 @@ from thanks.thanks import Thanks
 def main(package_name, requirements,
         #  pipfile, setuppy,
          debug, outfile):
+    if debug:
+        logger.level = logging.DEBUG
     thanks = Thanks(debug=debug)
     for p in package_name:
-        print(p)
         thanks.package(p)
     for r in requirements:
         requirements_list = r.read().splitlines()
