@@ -133,5 +133,5 @@ class Thanks():
 
         return '\n'.join(lines)
 
-    def rocks(self, colored_output=True):
+    def __str__(self, colored_output=True):
         return self._generate_output(colored_output)

@@ -38,7 +38,7 @@ class TestThanks(unittest.TestCase):
 
         thanks.package("crunchy-frog")
 
-        output = thanks.rocks(colored_output=False)
+        output = thanks.__str__(colored_output=False)
 
         assert "You depend on 1 authors" in output
         assert "crunchy-frog                    Kenneth Reitz" in output
@@ -51,7 +51,7 @@ class TestThanks(unittest.TestCase):
             mosw
         """))
 
-        output = thanks.rocks(colored_output=False)
+        output = thanks.__str__(colored_output=False)
 
         assert "You depend on 2 authors" in output
         assert "crunchy-frog                                                  Kenneth Reitz" in output
@@ -77,7 +77,7 @@ class TestThanks(unittest.TestCase):
 
         thanks.pipfile(pipfile_contents)
 
-        output = thanks.rocks(colored_output=False)
+        output = thanks.__str__(colored_output=False)
 
         assert "You depend on 2 authors" in output
         assert "crunchy-frog                                                  Kenneth Reitz" in output

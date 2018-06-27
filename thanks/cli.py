@@ -21,11 +21,6 @@ logger = logging.getLogger("thanks")
 @click.option("--pipfile", "-p",
               multiple=True,
               type=click.File("r"))
-# @click.option("--setuppy", "-s",
-#               multiple=True,
-#               type=click.File("r"))
-# @click.option("--poetry", type=click.Path(exists=True))
-# @click.option("--hatch", type=click.Path(exists=True))
 @click.option("--debug/--no-debug", default=False, help='Set debug mode')
 @click.option("--outfile", "-o",
               type=click.File("w"),
@@ -42,7 +37,7 @@ def main(package_name, requirements, pipfile,  # setuppy,
     for p in pipfile:
         thanks.pipfile(p.read())
 
-    outfile.write(thanks.rocks())
+    outfile.write(str(thanks))
 
 
 if __name__ == "__main__":
