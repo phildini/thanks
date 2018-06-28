@@ -18,13 +18,15 @@ requirements = [
     'termcolor>=1',
     'setuptools>=',
     'requests>=2',
+    'toml'
 ]
 
 setup_requirements = [
-    'nose'
+    "pytest-runner"
 ]
 
 test_requirements = [
+    "pytest",
     'ddt',
 ]
 
@@ -62,7 +64,6 @@ setup(
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
     ],
-    test_suite='nose.collector',
     tests_require=test_requirements,
     setup_requires=setup_requirements,
 )
