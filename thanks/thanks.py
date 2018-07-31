@@ -78,7 +78,7 @@ class Thanks():
             project_data = resp.json()
             data = ProjectData(
                 name=project_name,
-                funding_link=project_data['info'].get('funding_url', ''),
+                funding_link=project_data["info"].get("project_urls", {}).get("Funding", ""),
                 authors=project_data['info'].get('author', '')
             )
         except requests.exceptions.ConnectionError:
