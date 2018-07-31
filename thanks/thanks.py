@@ -142,6 +142,7 @@ class Thanks():
                 ]),
                 attrs=['bold']
         ))
+        lines.append("\n")
 
         return '\n'.join(lines)
 
