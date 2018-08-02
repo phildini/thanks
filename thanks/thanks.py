@@ -22,6 +22,16 @@ JSON_FILE = ("{}/thanks.json".format(os.path.dirname(os.path.realpath(__file__))
 ProjectData = namedtuple('ProjectData', ['name', 'funding_link', 'authors'])
 
 
+def _get_datum(path, value, default=None):
+    sentinel = {}
+    keys = path.split(".")
+    for key in keys:
+        value = value.get(key, sentinel)
+        if value is sentinel:
+            return default
+    return value
+
+
 class Thanks():
     def __init__(self, debug=False):
         self.debug = debug
@@ -78,8 +88,10 @@ class Thanks():
             project_data = resp.json()
             data = ProjectData(
                 name=project_name,
-                funding_link=project_data['info'].get('funding_url', ''),
-                authors=project_data['info'].get('author', '')
+                funding_link=_get_datum(
+                    "info.project_urls.Funding", project_data, default=""),
+                authors=_get_datum(
+                    "info.author", project_data, default=""),
             )
         except requests.exceptions.ConnectionError:
             data = None
@@ -130,6 +142,7 @@ class Thanks():
                 ]),
                 attrs=['bold']
         ))
+        lines.append("\n")
 
         return '\n'.join(lines)
 
