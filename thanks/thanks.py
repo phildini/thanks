@@ -131,18 +131,18 @@ class Thanks():
             vertical_bar=' ',
         ))
 
-        lines.append(colored(
-                ''.join([
-                    "If you see projects with ",
-                    colored("MISSING FUNDING INFORMATION ", "red"),
-                    "then why not submit a pull request ",
-                    "the project repository asking the author to ",
-                    colored("ADD A 'FUNDING' PROJECT_URL ", "yellow"),
-                    "to the projects setup.py"
-                ]),
-                attrs=['bold']
-        ))
-        lines.append("\n")
+        lines.append(
+            ''.join([
+                "See projects without ",
+                colored("FUNDING INFORMATION", "red"),
+                "? Why not submit a pull request to ",
+                "the project asking the author to add a ",
+                colored("'FUNDING' PROJECT_URL ", "yellow"),
+                "to the project's setup.py. ",
+                "https://packaging.python.org/guides/",
+                "distributing-packages-using-setuptools/#project-urls\n"
+            ]),
+        )
 
         return '\n'.join(lines)
 
