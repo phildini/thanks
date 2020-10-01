@@ -148,3 +148,4 @@ class Thanks():
 
     def __str__(self, colored_output=True):
         return self._generate_output(colored_output)
+#thanks
